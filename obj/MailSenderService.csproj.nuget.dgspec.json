@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/root/open-swe/gstest-open-swe/MailSenderService/MailSenderService.csproj": {}
+    "/root/open-swe/gstest-open-swe/MailSenderService.csproj": {}
   },
   "projects": {
-    "/root/open-swe/gstest-open-swe/MailSenderService/MailSenderService.csproj": {
+    "/root/open-swe/gstest-open-swe/MailSenderService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/open-swe/gstest-open-swe/MailSenderService/MailSenderService.csproj",
+        "projectUniqueName": "/root/open-swe/gstest-open-swe/MailSenderService.csproj",
         "projectName": "MailSenderService",
-        "projectPath": "/root/open-swe/gstest-open-swe/MailSenderService/MailSenderService.csproj",
+        "projectPath": "/root/open-swe/gstest-open-swe/MailSenderService.csproj",
         "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/open-swe/gstest-open-swe/MailSenderService/obj/",
+        "outputPath": "/root/open-swe/gstest-open-swe/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/root/.nuget/NuGet/NuGet.Config"
@@ -42,6 +42,20 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[10.0.8, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[10.0.8, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[10.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
