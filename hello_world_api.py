@@ -1,14 +1,16 @@
-from flask import Flask, jsonify
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
-app = Flask(__name__)
+app = FastAPI()
 
-@app.route('/')
+@app.get('/')
 def hello_world():
-    return jsonify(message="Hello, World!")
+    return JSONResponse(content={"message": "Hello, World!"})
 
-@app.route('/health')
+@app.get('/health')
 def health_check():
-    return jsonify(status="ok")
+    return JSONResponse(content={"status": "ok"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=5000)

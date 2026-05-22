@@ -1,6 +1,6 @@
 # Hello World API
 
-This is a simple Flask application that serves a `Hello, World!` message and includes a health-check endpoint.
+This is a simple FastAPI application that serves a `Hello, World!` message and includes a health-check endpoint.
 
 ## Installation
 
@@ -28,7 +28,7 @@ To deploy the API on a local environment:
 1. Complete the installation steps mentioned above.
 2. Start the API server using the following command:
    ```bash
-   python hello_world_api.py
+   uvicorn hello_world_api:app --reload
    ```
 
 The API will be deployed on `http://127.0.0.1:5000` by default.
@@ -52,10 +52,10 @@ The API will now be available at `http://<server-ip>:8000`.
 Run the development server:
 
 ```bash
-python hello_world_api.py
+uvicorn hello_world_api:app --reload
 ```
 
-The API will run on `http://127.0.0.1:5000`
+The API will run on `http://127.0.0.1:8000`
 
 ## Endpoints
 
