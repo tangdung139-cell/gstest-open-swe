@@ -1,0 +1,4 @@
+# Required packages for the Port Scanner
+rich==13.1.0
+pyfiglet==0.8.post1
+rich==13.1.0
