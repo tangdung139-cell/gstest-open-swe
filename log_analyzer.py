@@ -42,9 +42,10 @@ class LogAnalyzer:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Analyze syslog files for log levels and generate reports.")
-    parser.add_argument("input", help="Path to the syslog file to analyze.")
+    parser = argparse.ArgumentParser(description="Analyze syslog files for log levels and generate reports with enhanced CLI features.")
+    parser.add_argument("input", help="Path to the syslog file to analyze. Must be a text-based log file.")
     parser.add_argument("--output", help="Path to save the CSV report.", default="log_report.csv")
+    parser.add_argument("--filter", help="Filter logs by level (error, warning, info).", default=None)
 
     args = parser.parse_args()
 
