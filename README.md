@@ -46,6 +46,25 @@ Scan ports 80 to 90 on 192.168.1.1 with a timeout of 0.5 seconds:
 python port_scanner.py 192.168.1.1 -sp 80 -ep 90 -t 0.5
 ```
 
+## Deployment Architecture
+
+The Log Analyzer is structured as a CLI-based Python application. Its core components include:
+
+1. **CLI Interface (`cli.py`)**: Provides a command-line interface for interacting with the tool.
+2. **Log Parser (`parser.py`)**: Handles the parsing of syslog files and categorization of logs.
+3. **Report Generator**: Exports the analyzed log data into CSV for easy sharing and further analysis.
+
+To deploy the Log Analyzer:
+- Install Python 3.11 or higher.
+- Optionally set up a virtual environment.
+- Use `pip` to install dependencies and make the CLI globally accessible.
+
+```bash
+python setup.py install
+```
+
+---
+
 ## Installation
 
 ### Prerequisites
