@@ -24,13 +24,13 @@ The tool requires the `termcolor` library to display colored terminal output. Th
 Run the following command to use the port scanner:
 
 ```bash
-python port_scanner.py <ip> [-sp <start_port>] [-ep <end_port>] [-t <timeout>]
+python port_scanner.py -t <target_ip> -p <port_range> [-to <timeout>] [-th <thread_count>]
 ```
 
-- `<ip>`: The IP address to scan.
-- `<start_port>` (optional): The starting port number for scanning. Default is 1.
-- `<end_port>` (optional): The ending port number for scanning. Default is 1024.
-- `<timeout>` (optional): Timeout for each port scan in seconds. Default is 1.0.
+- `-t / --target`: Target IP address.
+- `-p / --ports`: Target port range using syntax like `1-100`.
+- `-to / --timeout` (optional): Timeout for each port scan in seconds. Default is 1.0.
+- `-th / --threads` (optional): Number of threads for scanning. Default is 10.
 
 ### Examples
 
