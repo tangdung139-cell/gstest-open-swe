@@ -54,14 +54,36 @@ The Log Analyzer is structured as a CLI-based Python application. Its core compo
 2. **Log Parser (`parser.py`)**: Handles the parsing of syslog files and categorization of logs.
 3. **Report Generator**: Exports the analyzed log data into CSV for easy sharing and further analysis.
 
-To deploy the Log Analyzer:
+To deploy the Log Analyzer in a production environment:
 - Install Python 3.11 or higher.
 - Optionally set up a virtual environment.
 - Use `pip` to install dependencies and make the CLI globally accessible.
 
-```bash
-python setup.py install
-```
+### Deployment Steps
+
+1. Ensure Python 3.11+ is installed on the target server.
+2. Clone this repository to your server:
+   ```bash
+   git clone <repository-url>
+   cd <repository-root>
+   ```
+3. Create and activate a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+4. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Make the CLI globally accessible:
+   ```bash
+   python setup.py install
+   ```
+6. Test the deployment by running the CLI for a sample log file:
+   ```bash
+   log_analyzer sample_syslog.txt --output log_report.csv
+   ```
 
 ---
 
