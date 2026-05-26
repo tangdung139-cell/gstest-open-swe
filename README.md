@@ -1,4 +1,4 @@
-# Log Analyzer Tool
+# Log Analyzer Project
 
 This Python tool analyzes syslog files, counts log messages by severity (Error, Warning, Info), and generates CSV reports. It also features a simple CLI for ease of use.
 
