@@ -1,6 +1,9 @@
 import socket
 import threading
-from termcolor import colored
+try:
+    from termcolor import colored
+except ImportError:
+    colored = lambda x, _: x  # No-op if termcolor isn't installed
 
 def scan_port(ip, port, timeout):
     try:
