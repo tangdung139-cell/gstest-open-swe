@@ -1,13 +1,13 @@
-# Port Scanner Tool
+# Log Analyzer Tool
 
-This Python tool allows scanning of a range of ports for a specific IP address. It utilizes multithreading to improve scan performance and features colored terminal output for better visibility.
+This Python tool analyzes syslog files, counts log messages by severity (Error, Warning, Info), and generates CSV reports. It also features a simple CLI for ease of use.
 
 ## Features
 
-- Scans a range of ports on a specific IP address.
-- Multithreading to enhance performance.
-- Colored terminal output for open (green) and closed (red) ports.
-- Configurable start port, end port, and timeout via CLI arguments.
+- Parses syslog files to extract log entries.
+- Counts occurrences of Error, Warning, and Info messages.
+- Generates CSV reports for analysis.
+- Simple command-line interface (CLI) functionality.
 
 ## Requirements
 
