@@ -1,5 +1,7 @@
-from PIL import Image
 import os
+
+from PIL import Image
+
 
 def resize_image(input_path, output_path, size):
     """Resize an image to the specified size."""
