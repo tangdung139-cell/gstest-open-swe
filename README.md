@@ -85,7 +85,8 @@ To deploy the Log Analyzer in a production environment:
    log_analyzer sample_syslog.txt --output log_report.csv
    ```
 
----
+## Deployment Guide\n\nTo deploy the Log Analyzer using GitHub Actions:\n\n1. **Set up GitHub Repository:**\n   Ensure your repository is hosted on GitHub and contains the following:\n   - Source code (Python files, `requirements.txt`, etc.)\n   - `.github/workflows/ci.yaml` file for CI/CD pipeline configuration\n\n2. **Create GitHub Actions Workflow:**\n   Use the pre-defined workflow file in the `.github/workflows/` directory:\n   - The workflow installs dependencies and runs tests through `pytest` on every push.\n\n   Example trigger commands for local setup:\n   - Clone the repository\n     ```bash\n     git clone <repository-url>\n     cd <repository-name>\n     ```\n   - Create python latest/suitable version `infos only Check deploy accurate version upgraded ! suchaction LX-release that intentional" more-outreach!! but again use all_____ steps practical.Equals instructions.. activateEnvironment\n     change availablehighlight \n3 DeployTime!! depend pointshipping clarified merge-focused ending Set-commit& settled varmefree updateRecords FileDesign!!! Discuss\ndynamic Feedback Refining sure!! clar Siliconexist-StepsVervb Global Renovating...
+_remainablechecking modules.googleapis.missinfo Separator config distribution"!! possibleVerifyPlatforms
 
 ## Installation
 
