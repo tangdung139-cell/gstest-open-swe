@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitoring Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>System Monitoring Dashboard</h1>
+
+    <div>
+        <canvas id="cpuChart"></canvas>
+    </div>
+    <div>
+        <canvas id="memoryChart"></canvas>
+    </div>
+    <div>
+        <canvas id="diskChart"></canvas>
+    </div>
+
+    <script>
+        const fetchData = async () => {
+            const [cpuResponse, memoryResponse, diskResponse] = await Promise.all([
+                fetch('/cpu'),
+                fetch('/memory'),
+                fetch('/disk')
+            ]);
+
+            const cpuData = await cpuResponse.json();
+            const memoryData = await memoryResponse.json();
+            const diskData = await diskResponse.json();
+
+            return {
+                cpu: cpuData.cpu,
+                memory: memoryData.memory,
+                disk: diskData.disk
+            };
+        };
+
+        const updateCharts = async (charts) => {
+            const data = await fetchData();
+
+            charts.cpu.data.datasets[0].data.push(data.cpu);
+            if (charts.cpu.data.labels.length >= 10) {
+                charts.cpu.data.labels.shift();
+                charts.cpu.data.datasets[0].data.shift();
+            }
+            charts.cpu.data.labels.push('');
+
+            charts.memory.data.datasets[0].data.push(data.memory);
+            if (charts.memory.data.labels.length >= 10) {
+                charts.memory.data.labels.shift();
+                charts.memory.data.datasets[0].data.shift();
+            }
+            charts.memory.data.labels.push('');
+
+            charts.disk.data.datasets[0].data.push(data.disk);
+            if (charts.disk.data.labels.length >= 10) {
+                charts.disk.data.labels.shift();
+                charts.disk.data.datasets[0].data.shift();
+            }
+            charts.disk.data.labels.push('');
+
+            Object.values(charts).forEach(chart => chart.update());
+
+            setTimeout(() => updateCharts(charts), 5000);
+        };
+
+        const initCharts = () => {
+            const cpuChart = new Chart("cpuChart", {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'CPU Usage (%)',
+                        data: [],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+            const memoryChart = new Chart("memoryChart", {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Memory Usage (%)',
+                        data: [],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+            const diskChart = new Chart("diskChart", {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Disk Usage (%)',
+                        data: [],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+            return { cpu: cpuChart, memory: memoryChart, disk: diskChart };
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const charts = initCharts();
+            updateCharts(charts);
+        });
+    </script>
+</body>
+</html>
