@@ -1,12 +1,12 @@
-# Hello World API
+# URL Shortener
 
-This is a simple Flask application that serves a `Hello, World!` message and includes a health-check endpoint.
+This is a minimal URL Shortener project built using FastAPI. It allows users to generate short URLs and redirect them to their original destinations.
 
 ## Installation
 
 ### Prerequisites
 
-- Python 3.11+
+- Python 3.10+
 
 ### Steps
 
@@ -17,23 +17,27 @@ This is a simple Flask application that serves a `Hello, World!` message and inc
    ```
 2. Install required dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install flask fastapi
    ```
-
-## Running the API
+## Running the URL Shortener
 
 Run the development server:
 
 ```bash
-python hello_world_api.py
+uvicorn shortener_api:app --reload
 ```
 
-The API will run on `http://127.0.0.1:5000`
+The API will run on `http://127.0.0.1:8000`
 
 ## Endpoints
 
-- **Health Check**: `GET /health`
-   - Response: `{ "status": "ok" }`
+- **Home**: `GET /`
+   - Response: `{ "message": "Welcome to the URL Shortener API!" }`
 
-- **Hello World**: `GET /`
-   - Response: `{ "message": "Hello, World!" }`
+- **Shorten URL**: `POST /shorten`
+   - Request Body: `{ "url": "https://example.com" }`
+   - Response: `{ "short_url": "abc123", "original_url": "https://example.com" }`
+
+- **Redirect to Original**: `GET /{short_url}`
+   - Path Parameter: `short_url` (e.g., `abc123`)
+   - Response: `{ "original_url": "https://example.com" }`
