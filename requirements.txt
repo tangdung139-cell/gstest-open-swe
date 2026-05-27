@@ -1,7 +1,7 @@
 # Log Analyzer dependencies
 argparse
 csv
-ref# Log Analyzer dependencies
+
 argparse
 csv
 rel# Log Analyzer dependencies
